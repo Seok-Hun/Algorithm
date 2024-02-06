@@ -35,7 +35,7 @@ def dijkstra(G, start, end):
             distance = currentDistance + weight
 # 만약 계산한 현재 정점까지의 거리가 기존에 저장되어 있던 현재 정점까지의 거리보다 작다면
             if distance < distances[adjacent]:
-# 기존에 저장되어 있던 현재 정점까지의 거리를 계산한 현재 정점까지의 거리로 갱신
+# 기존에 저장되어 있던 현재 정점까지의 거리를 방금 계산한 현재 정점까지의 거리로 갱신
                 distances[adjacent] = distance
 # 최소 거리의 갱신이 발생한 것이므로 현재 정점과 인접한 이전 정점을 value 값으로 저장
 # 키값에는 각각의 정점이 할당
@@ -43,7 +43,7 @@ def dijkstra(G, start, end):
                 parents[adjacent] = currentDestination
 # 힙에 현재 정점(갱신이 발생한 정점)과 해당 정점까지의 거리를 추가
                 heapq.heappush(queue, [distance, adjacent])
-# 
+
 # while문을 탈출하면 최단 경로는 distances에 딕셔너리 형태로 저장되어 있다.
 
 # 경로를 탐색하기 위한 반복문
@@ -66,4 +66,4 @@ stations = {
     'E': {'B': 8, 'C': 1}
 }
 
-print(dijkstra(stations, 'B', 'C'))
+print(dijkstra(stations, 'E', 'A'))
